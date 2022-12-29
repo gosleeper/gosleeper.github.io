@@ -1,0 +1,121 @@
+---
+layout: post
+title: 'C语言2'
+date: 2022-12-29
+author: Jekyll
+cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
+tags: C语言
+---
+
+# 程序设计2
+1.指针
+----
+
+ 一个指针标量就是保存地址的变量。
+
+\--javascripttypescriptbashsqljsonhtmlcssccppjavarubypythongorustmarkdown
+
+```text-plain
+int i;
+int* p = &i;//p指向了i的地址
+int* p,q;//q是一个int变量
+int *p,q;//*p是一个指向int类型的指针
+```
+
+* * *
+
+对于scanf来说有木有空格是不一样的，空格就是说读到空格完后结束，否则一也结束。
+
+* * *
+
+### 宏(宏的本质就是替换）
+
+注意点：
+
+1）对带参数的宏的展开只是将语句中的宏名后面括号内的实参字符串代替#define 命令行中的形参。
+
+2）在宏定义时，在宏名与带参数的括号之间不可以加空格，否则会将空格以后的字符都作为替换字符串的一部分。
+
+3）在带参数的宏定义中，形式参数不分配内存单元，因此不必做类型定义。
+
+使用宏定义的好处：
+
+（1）输入代码时可以省去许多输入操作因为宏名要比宏体短。
+
+（2）因为宏只需要定义一次，可以多次使用，而定义的宏名往往有一定的含义，所以使用宏增强程序的易读性和可靠性。
+
+（3）宏不会引起额外的开销。宏的代码只会在宏出现的地方展开，不会引起程序的跳转，可以节省程序调用的时间。
+
+（4）宏的参数对类型不敏感，因此不用过多考虑参数的类型问题 ———————————————— 版权声明：本文为CSDN博主「WangLanguager」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 原文链接：[https://blog.csdn.net/wangjiaweiwei/article/details/86632784](https://blog.csdn.net/wangjiaweiwei/article/details/86632784)
+
+对于带参宏定义不仅要在参数两侧加括号，还应该在整个字符串外加括号。
+
+* * *
+
+void\*类型的指针因为无法确定大小所以不能进行加减操作,其他类型的指针自加或自减就是将它的值加/减去其数据类型的字节数.
+
+* * *
+
+注：对于指针s来说
+
+`*s和s[0]是一样的直接访问所在地的值`
+
+```text-plain
+#include<stdio.h>
+#include<string.h>
+
+
+int main(){
+    int a = 16, b = 932, c = 100;
+    //定义一个指针数组
+    int *arr[3] = {&a, &b, &c};//也可以不指定长度，直接写作 int *arr[]
+    //定义一个指向指针数组的指针
+    int **parr = arr;
+    printf("%d, %d, %d\n", arr[0], arr[1], arr[2]);
+    printf("%d, %d, %d\n", **(parr+0), **(parr+1), **(parr+2));
+    return 0;
+}
+6487572, 6487568, 6487564
+16, 932, 100
+```
+
+### 冒泡排序
+
+
+
+### 代码段，有关数组的复制，库函数
+`memcpy(&ee[0][0],&ww[0][0],sizeof(int)*100*100);`
+	   1.多维数组的内存空间是连续开出来的，逐行按列开的内存。
+
+2.strcpy是实现字符串的复制并且连带着`\0`一起完成复制的。char *strcpy(char *dest, const char *src)返回的地址指向dest。
+
+3.void *memcpy(void *str1, const void *str2, size_t n) 这是函数原型。返回的全能指针指向str1的地址，本函数表达的是str2向str1复制且覆盖（这是一种从前往后按顺序的复制粘贴，并且粘贴的时候是str1的地址开始，这里就可以实现一种控制，完成字符数组str1的第k个字节开始复制n个字节到str2的第j个字节开始，这就充分体现地址的重要性了，他完成了一种相对自由的调度）。
+
+4.还可以在谈到memset函数【void *memcpy(void *str1, const void *str2, size_t n)】这是逐个字节的复制，相当于一种初始化了。
+
+
+
+###  typedef
+
+在C语言中类型定义机制比较弱，所以typedef的主要作用就是简化描述。有点类似宏替代
+
+```c
+typedef unsigned long int UNX;//把类型当做类型看。
+UNX a,b,c;//这里a,b,c就是unsigned long int的类型。
+```
+
+**这里就浅谈一下宏定义，和定义类型的一些不同：**
+
+```c
+#define UNX int *
+typedef int * UNX1;
+UNX a;
+UNX1 b;//最后a不是指针变量，而b是，所以少用一些宏定义以免程序错误
+······························································
+//定义数组也有特殊性，这不是宏定义实现的。
+typedef double MAT[5][5];
+MAT a1,a2,a3;//这里就定义了3哥5*5的double数组
+```
+
+
+
