@@ -2,7 +2,7 @@
 layout: post
 title: 'C语言1'
 date: 2022-12-29
-author: c语言
+author: 王耀祖
 cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
 tags: C语言
 ---
