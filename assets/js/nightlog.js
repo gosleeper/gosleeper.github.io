@@ -25,7 +25,8 @@
   addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  const reveals = [...document.querySelectorAll('.reveal')];
+  // Article content must never depend on JavaScript to remain readable.
+  const reveals = [...document.querySelectorAll('.reveal:not(.article-shell .reveal)')];
   if (!reduced && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
