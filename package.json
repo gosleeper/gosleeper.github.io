@@ -1,0 +1,12 @@
+{
+  "name": "gosleeper-native-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "python -m http.server 4173 -d docs"
+  },
+  "devDependencies": {
+    "marked": "17.0.5"
+  }
+}
