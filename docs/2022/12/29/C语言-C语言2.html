@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="程序设计2（笔记记录log） 指针 一个指针标量就是保存地址的变量。 --javascripttypescriptbashsqljsonhtmlcssccppjavarubypyt"><title>C语言2 · gosleeper</title><link rel="icon" href="/assets/img/wang-yaozu-icon.png"><script>document.documentElement.classList.add('js')</script><link rel="stylesheet" href="/assets/css/nightlog.css"></head><body><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress"><span data-progress></span></div><div class="page-grain"></div><header class="site-header"><a class="wordmark" href="/"><img class="identity-avatar" src="/assets/img/wang-yaozu-id.png" alt=""><span class="identity-name"><strong>王耀祖</strong><small>@gosleeper</small></span></a><nav class="site-nav"><a href="/#notes">日志</a><a href="/tags.html">索引</a><a href="/#projects">项目</a><a href="https://github.com/gosleeper">GitHub ↗</a></nav></header><main id="main"><article class="article-shell"><header class="article-hero"><a class="back-link" href="/#notes">← 返回日志</a><p class="kicker">FIELD NOTE / 2022.12.29</p><h1>C语言2</h1><div class="article-meta"><span>记录者 / Jekyll</span><span>坐标 / C语言</span></div></header><div class="article-grid"><aside class="article-rail"><span class="rail-number">008</span><p>一份沿途留下的真实记录。</p></aside><div class="prose"><h1>程序设计2（笔记记录log）</h1>
+<h3>指针</h3>
+<hr>
+<p> 一个指针标量就是保存地址的变量。</p>
+<p>--javascripttypescriptbashsqljsonhtmlcssccppjavarubypythongorustmarkdown</p>
+<pre><code class="language-text-plain">int i;
+int* p = &amp;i;//p指向了i的地址
+int* p,q;//q是一个int变量
+int *p,q;//*p是一个指向int类型的指针
+</code></pre>
+<hr>
+<p>对于scanf来说有木有空格是不一样的，空格就是说读到空格完后结束，否则一也结束。</p>
+<hr>
+<h3>宏(宏的本质就是替换）</h3>
+<p>注意点：</p>
+<p>1）对带参数的宏的展开只是将语句中的宏名后面括号内的实参字符串代替#define 命令行中的形参。</p>
+<p>2）在宏定义时，在宏名与带参数的括号之间不可以加空格，否则会将空格以后的字符都作为替换字符串的一部分。</p>
+<p>3）在带参数的宏定义中，形式参数不分配内存单元，因此不必做类型定义。</p>
+<p>使用宏定义的好处：</p>
+<p>（1）输入代码时可以省去许多输入操作因为宏名要比宏体短。</p>
+<p>（2）因为宏只需要定义一次，可以多次使用，而定义的宏名往往有一定的含义，所以使用宏增强程序的易读性和可靠性。</p>
+<p>（3）宏不会引起额外的开销。宏的代码只会在宏出现的地方展开，不会引起程序的跳转，可以节省程序调用的时间。</p>
+<p>（4）宏的参数对类型不敏感，因此不用过多考虑参数的类型问题 ———————————————— 版权声明：本文为CSDN博主「WangLanguager」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。 原文链接：<a href="https://blog.csdn.net/wangjiaweiwei/article/details/86632784">https://blog.csdn.net/wangjiaweiwei/article/details/86632784</a></p>
+<p>对于带参宏定义不仅要在参数两侧加括号，还应该在整个字符串外加括号。</p>
+<hr>
+<p>void*类型的指针因为无法确定大小所以不能进行加减操作,其他类型的指针自加或自减就是将它的值加/减去其数据类型的字节数.</p>
+<hr>
+<p>注：对于指针s来说</p>
+<p><code>*s和s[0]是一样的直接访问所在地的值</code></p>
+<pre><code class="language-text-plain">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+
+
+int main(){
+    int a = 16, b = 932, c = 100;
+    //定义一个指针数组
+    int *arr[3] = {&amp;a, &amp;b, &amp;c};//也可以不指定长度，直接写作 int *arr[]
+    //定义一个指向指针数组的指针
+    int **parr = arr;
+    printf(&quot;%d, %d, %d\n&quot;, arr[0], arr[1], arr[2]);
+    printf(&quot;%d, %d, %d\n&quot;, **(parr+0), **(parr+1), **(parr+2));
+    return 0;
+}
+6487572, 6487568, 6487564
+16, 932, 100
+</code></pre>
+<h3>冒泡排序</h3>
+<h3>结构</h3>
+<h3>代码段，有关数组的复制，库函数</h3>
+<p><code>memcpy(&amp;ee[0][0],&amp;ww[0][0],sizeof(int)*100*100);</code>
+	   1.多维数组的内存空间是连续开出来的，逐行按列开的内存。</p>
+<p>2.strcpy是实现字符串的复制并且连带着<code>\0</code>一起完成复制的。char *strcpy(char *dest, const char *src)返回的地址指向dest。</p>
+<p>3.void *memcpy(void *str1, const void *str2, size_t n) 这是函数原型。返回的全能指针指向str1的地址，本函数表达的是str2向str1复制且覆盖（这是一种从前往后按顺序的复制粘贴，并且粘贴的时候是str1的地址开始，这里就可以实现一种控制，完成字符数组str1的第k个字节开始复制n个字节到str2的第j个字节开始，这就充分体现地址的重要性了，他完成了一种相对自由的调度）。</p>
+<p>4.还可以在谈到memset函数【void *memcpy(void *str1, const void *str2, size_t n)】这是逐个字节的复制，相当于一种初始化了。</p>
+<h3>typedef</h3>
+<p>在C语言中类型定义机制比较弱，所以typedef的主要作用就是简化描述。有点类似宏替代</p>
+<pre><code class="language-c">typedef unsigned long int UNX;//把类型当做类型看。
+UNX a,b,c;//这里a,b,c就是unsigned long int的类型。
+</code></pre>
+<p><strong>这里就浅谈一下宏定义，和定义类型的一些不同：</strong></p>
+<pre><code class="language-c">#define UNX int *
+typedef int * UNX1;
+UNX a;
+UNX1 b;//最后a不是指针变量，而b是，所以少用一些宏定义以免程序错误
+······························································
+//定义数组也有特殊性，这不是宏定义实现的。
+typedef double MAT[5][5];
+MAT a1,a2,a3;//这里就定义了3哥5*5的double数组
+</code></pre>
+<hr>
+<h3>静态本地变量</h3>
+<p>静态本地变量其就像全局变量，他们位于相同的内存区域，静态本地变量用static来开头。</p>
+<p>静态本地变量的生存期和全局变量一样，从程序开始到程序结束。但是他的作用域只存在与他被定义的函数里头（main函数也是函数）</p>
+<hr>
+<h3>返回指针的函数</h3>
+<p>首先你要注意，变量的生存期和作用域，这么说，你返回函数里的本地变量的地址，那么在函数外面接收到了该地址，但是当你使用的时候是由风险的，因为理论上那个变量是不被控制了的，或者被释放了的，不能保证他的稳定性和受控性。</p>
+<p>当然我们去用全局变量来用，但是我们尽量要避免使用全局变量来替代，有一定的危险。</p>
+<p>使用全局变量和静态本地变量的函数是线程不安全的。</p>
+<p>最好的做法是返回传入的指针。</p>
+<hr>
+<h3>编译预处理指令</h3>
+<ul>
+<li>#号开头的是编译预处理指令</li>
+<li>他们不是C语言的成分，但是C语言程序离不开他们</li>
+<li>#define用来定义一个宏</li>
+</ul>
+</div></div></article></main><footer class="site-footer"><p><span class="footer-signal"></span>SIGNAL STILL ALIVE</p><p>© 2022—2026 王耀祖</p><a href="mailto:kekun4txzs@163.com">kekun4txzs@163.com</a></footer><script src="/assets/js/nightlog.js"></script></body></html>
