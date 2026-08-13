@@ -1,108 +1,154 @@
 ---
-layout: default
-home-title: 王耀祖的博客
-description: 我帅故我在
-header-img: assets/img/banner.jpg
+layout: null
+title: gosleeper · Digital Garden
+description: Projects, notes, experiments, and long-term thinking from an independent developer.
 ---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description }}">
+  <meta name="theme-color" content="#08151d">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
+  <title>{{ page.title }}</title>
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/garden.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
 
-{% include header.html %}
+  <header class="site-header">
+    <a class="identity" href="{{ '/' | relative_url }}" aria-label="gosleeper 首页">
+      <span class="identity-mark" aria-hidden="true">g/</span>
+      <span>gosleeper</span>
+    </a>
+    <nav aria-label="主要导航">
+      <a href="#work">项目</a>
+      <a href="#notes">文章</a>
+      <a href="{{ '/tags.html' | relative_url }}">标签</a>
+      <a href="mailto:kekun4txzs@163.com">联系</a>
+    </nav>
+  </header>
 
-<div
-    class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
-    data-theme="{{ site.theme-color }}"
-    style="{% if page.header-img %}background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}"
->
-    <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
-</div>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Independent developer · China</p>
+        <h1 id="hero-title">把想法做成<br><em>可以运行的东西。</em></h1>
+        <p class="hero-intro">这里不是完成品陈列柜，而是一座持续生长的数字花园。我写软件、拆解问题，也记录那些值得留下的过程。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">看看我在做什么 <span aria-hidden="true">↘</span></a>
+          <a class="button button-quiet" href="https://github.com/gosleeper">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+      <div class="build-orbit" aria-label="当前探索方向">
+        <div class="orbit-core">
+          <span>NOW</span>
+          <strong>building</strong>
+        </div>
+        <div class="orbit-ring orbit-ring-one">
+          <span class="orbit-node node-java">Java</span>
+          <span class="orbit-node node-web">Web</span>
+        </div>
+        <div class="orbit-ring orbit-ring-two">
+          <span class="orbit-node node-ai">AI × tools</span>
+          <span class="orbit-node node-notes">Notes</span>
+        </div>
+        <p class="orbit-caption">projects · experiments · notes</p>
+      </div>
+    </section>
 
-<main class="g-container home-content">
-    <div class="article-list">
-        {% for post in paginator.posts %}
-            <article class="article-item">
-                {% if post.cover %}
-                <div class="post-cover">
-                    <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}"></a>
-                    <img src="{{ post.cover | relative_url }}" href="{{ post.url | relative_url }}" alt="">
-                </div>
-                {% endif %}
-                <section class="post-preview">
-                    <a class="post-link" href="{{ post.url | relative_url }}" title="{{ post.title }}"></a>
-                    <h2 class="post-title">{{ post.title }}</h2>
-                    {% if post.subtitle %}
-                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-                    {% endif %}
-                    {% if post.subtitle.size==0 or post.subtitle==nil %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
-                    {% endif %}
-                </section>
-                <footer class="post-meta">
-                    <div class="post-tags">
-                        {% if post.tags.size > 0 %}
-                            {% for tag in post.tags  %}
-                            <a href={{ "tags.html#" | append: tag | relative_url }} class="post-tag">{{ tag }}</a>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <time class="post-date" datetime="{{ post.date | date:"%y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-                </footer>
-            </article>
+    <section class="manifesto" aria-label="做事原则">
+      <p>Make it work.</p>
+      <p>Make it clear.</p>
+      <p>Make it useful.</p>
+      <p>Keep learning in public.</p>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2 id="work-title">正在构建</h2>
+        </div>
+        <p>完整比庞大重要，清晰比炫技长久。</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-featured">
+          <div class="project-topline"><span>01 · Full stack</span><span>2025—</span></div>
+          <div>
+            <h3>Medical Management Platform</h3>
+            <p>覆盖医生、患者、药品、就诊与数据看板的模块化医疗管理平台。Java 后端与 Vue 管理端共同组成一套完整业务系统。</p>
+          </div>
+          <ul class="tech-list" aria-label="技术栈"><li>Spring Boot</li><li>MyBatis</li><li>Vue</li><li>Element UI</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/gosleeper/medical-system">Backend ↗</a>
+            <a href="https://github.com/gosleeper/medical-management-system">Frontend ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-topline"><span>02 · Systems</span><span>2025—</span></div>
+          <div>
+            <h3>InfiniteChat</h3>
+            <p>围绕认证、联系人、消息、动态、离线存储与实时通信拆分的多模块通信系统实验。</p>
+          </div>
+          <ul class="tech-list" aria-label="技术栈"><li>Java</li><li>Spring Boot</li><li>Docker</li></ul>
+          <div class="project-links"><a href="https://github.com/gosleeper/InfiniteChat-ai">Explore repository ↗</a></div>
+        </article>
+
+        <article class="project-card project-note">
+          <div class="project-topline"><span>03 · This place</span><span>Always</span></div>
+          <div>
+            <h3>Digital Garden</h3>
+            <p>这座网站本身也是一个项目：整理旧知识，写下新理解，让长期产出有一个稳定、属于自己的地址。</p>
+          </div>
+          <ul class="tech-list" aria-label="主题"><li>Writing</li><li>Jekyll</li><li>Open source</li></ul>
+          <div class="project-links"><a href="https://github.com/gosleeper/gosleeper.github.io">View source ↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section notes-section" id="notes" aria-labelledby="notes-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Recent notes</p>
+          <h2 id="notes-title">最近记录</h2>
+        </div>
+        <a class="text-link" href="{{ '/tags.html' | relative_url }}">按标签浏览 ↗</a>
+      </div>
+
+      <div class="notes-list">
+        {% for post in site.posts limit: 6 %}
+        <article class="note-row">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          <div>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            {% if post.subtitle %}<p>{{ post.subtitle }}</p>{% else %}<p>{{ post.excerpt | strip_html | strip_newlines | truncate: 90 }}</p>{% endif %}
+          </div>
+          <span class="note-arrow" aria-hidden="true">↗</span>
+        </article>
         {% endfor %}
+      </div>
+    </section>
 
-        {% if paginator.total_pages > 1 %}
-            {% include pageNav.html %}
-        {% endif %}
+    <section class="contact-section" aria-labelledby="contact-title">
+      <p class="eyebrow">Open channel</p>
+      <h2 id="contact-title">有个想法？<br>来交换一下。</h2>
+      <a href="mailto:kekun4txzs@163.com">kekun4txzs@163.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 
-    </div>
-
-    <aside class="g-sidebar-wrapper">
-        <div class="g-sidebar">
-            <section class="author-card">
-                <div class="avatar">
-                    <img src="{{ site.avatar | relative_url }}" alt="">
-                </div>
-                <div class="author-name" rel="author">{{ site.author }}</div>
-                <div class="bio">
-                    <p>{{ site.bio }}</p>
-                </div>
-                {% if site.sns.size > 0 %}
-                <ul id="sns-links" class="sns-links">
-                    {% for s in site.sns %}
-                    <li>
-                        <a href="{{ s[1] }}" target="_blank">
-                            <i class="iconfont icon-{{ s[0] }}"></i>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </section>
-
-            {% if site.recommend-tags and site.tags.size>0 %}
-            <section class="tags-card">
-                {% for tag in site.tags %}
-                    {% if forloop.index > site.recommend-condition-size %}
-                        {% break %}
-                    {% endif %}
-                    <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
-                {% endfor %}
-            </section>
-            {% endif %}
-        </div>
-
-        {% if site.search %}
-        <div class="search-card">
-            <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
-            <i class="iconfont icon-search"></i>
-            <div class="search_result"></div>
-        </div>
-        {% endif %}
-
-    </aside>
-
-</main>
-
-{% include footer.html %}
+  <footer class="site-footer">
+    <p>© {{ site.time | date: '%Y' }} gosleeper</p>
+    <p>Built slowly. Kept alive.</p>
+    <a href="#main">回到顶部 ↑</a>
+  </footer>
+</body>
+</html>
