@@ -1,16 +1,12 @@
 ---
+title: 偏离路线
 layout: default
-description: "Sorry, Page Not Found :("
+permalink: /404.html
 ---
-
-{% include header.html %}
-
-<header class="g-banner np-banner {{ site.postPatterns | prepend: 'post-pattern-' }}" data-theme="{{ site.theme-color }}">
-    <div class="post-wrapper">
-        <h1>404</h1>
-        <span class="subheading">{{ page.description }}</span>
-        <a href="{{ site.nav.home }}" class="btn">Back to home</a>
-    </div>
-</header>
-
-
+<section class="lost-page">
+  <p class="kicker">ROUTE LOST / 404</p>
+  <div class="lost-number" aria-hidden="true">404</div>
+  <h1>这一站不存在。</h1>
+  <p>也许链接已经过期，也许你只是坐过了站。</p>
+  <a class="pill-link" href="{{ '/' | relative_url }}">回到起点 <span>↗</span></a>
+</section>
