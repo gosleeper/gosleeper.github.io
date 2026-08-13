@@ -1,0 +1,130 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="珍惜当下 为什么沉迷与过去 沉迷，应该是享受，才会沉迷吧？即便不是享受，肯定是沉迷过去让你感觉收获大于付出。 分析下自己享受的是什么？ 是不是因为没有新的享受来源才一直抓住过去的那"><title>珍惜当下(python学习笔记) · gosleeper</title><link rel="icon" href="/assets/img/wang-yaozu-icon.png"><script>document.documentElement.classList.add('js')</script><link rel="stylesheet" href="/assets/css/nightlog.css"></head><body><a class="skip-link" href="#main">跳到正文</a><div class="reading-progress"><span data-progress></span></div><div class="page-grain"></div><header class="site-header"><a class="wordmark" href="/"><img class="identity-avatar" src="/assets/img/wang-yaozu-id.png" alt=""><span class="identity-name"><strong>王耀祖</strong><small>@gosleeper</small></span></a><nav class="site-nav"><a href="/#notes">日志</a><a href="/tags.html">索引</a><a href="/#projects">项目</a><a href="https://github.com/gosleeper">GitHub ↗</a></nav></header><main id="main"><article class="article-shell"><header class="article-hero"><a class="back-link" href="/#notes">← 返回日志</a><p class="kicker">FIELD NOTE / 2023.04.02</p><h1>珍惜当下(python学习笔记)</h1><div class="article-meta"><span>记录者 / 王耀祖</span><span>坐标 / python</span></div></header><div class="article-grid"><aside class="article-rail"><span class="rail-number">002</span><p>一份沿途留下的真实记录。</p></aside><div class="prose"><h1>珍惜当下</h1>
+<h2>为什么沉迷与过去</h2>
+<blockquote>
+<p>沉迷，应该是享受，才会沉迷吧？即便不是享受，肯定是沉迷过去让你感觉收获大于付出。</p>
+<p>分析下自己享受的是什么？</p>
+<p>是不是因为没有新的享受来源才一直抓住过去的那点收获补偿自己？</p>
+</blockquote>
+<h2>PYTHON学习笔记(廖雪峰官网学 习笔记)</h2>
+<p>注：学习笔记的记录（不是原创教程，仅当记录），其实也是一堆废话，见谅别较真。</p>
+<h3>python</h3>
+<p>python是一种解释型的语言，不能加密，这就意味着在一旦发布python就是发布了源代码。对应的编译型语言就没有这个担忧，比如c或者java，只需要把编译后的机器码（也就是.exe文件）发布出去。</p>
+<p>当然python是一门很简洁的高级编程语言，往往不需要很复制的语法规则，就比如在C语言中使用变量就必须要申请一个变量名字并且要声明变量名字的类型，然而在python中就不需要申请和声明类型，直接按照规则就自动(一个变量的名字只能用数字字母和下划线“_”自由搭配来表示，要求不能用数字开头就行)	这样的后果就是不能充分调用硬件的性能，速度会慢很多（但是现在计算机的发展倒不必过分担心）</p>
+<p>python有很多很多的库，官方的或者自由开发者做的（爱了呜呜），我们可以直接调用，这样就给我们节省很大的精力。这些库就像一个函数一样，我们只要明白了函数是干什么怎么用的我们就能轻易的使用了</p>
+<p>python解释器，我们直接在官网下载的python3.0就获得了一个官方的解释器：CPpython，这是一个用C语言开发的，在命令行中运行 <code>python</code> 就启动了。CPython用<code>&gt;&gt;&gt;</code>作为提示符</p>
+<p>还有一个小坑值得注意的就是python的另一个解释器叫PyPy，他是采用的<a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">JIT技术</a>（对python代码进行一个动态编译而不是解释，<a href="https://www.bing.com/search?q=%E5%8A%A8%E6%80%81%E7%BC%96%E8%AF%91%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D&qs=n&form=QBRE&sp=-1&lq=0&pq=%E5%8A%A8%E6%80%81%E7%BC%96%E8%AF%91%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D&sc=0-9&sk=&cvid=706FB1A69BA849248B261734D5933165&ghsh=0&ghacc=0&ghpl=">动态编译是什么</a>）主打的就是一个高速的执行速度，绝大部分的python代码是可以在PyPy下运行的，但是PyPy和CPython还是有一些不同的，所以就会导致一段代码在两个编译环境中运行的结果出现不同，如果你的代码要放在PyPy下执行，就需要了解<a href="http://pypy.readthedocs.org/en/latest/cpython_differences.html">PyPy和CPython的不同点</a>。</p>
+<p>还有其他的解释器，但也不怎么用就不展开说了。RTFM。</p>
+<h3>输入和输出</h3>
+<pre><code class="language-python">input() #输入
+print() #输出
+
+name = input() #输入一个东西赋值给name变量
+print(name) #输出变量name指向的东西
+print(&#39;name&#39;) #输出字符串name，英文的双引号和单引号表示的是字符串字符 
+print(&#39;100 + 200 = &#39;,100+200) #在这英文的逗号在运行后表示的是一个空格，我理解是想输出字符串‘100 + 200 =’然后在输出100+200表示的东西。
+</code></pre>
+<h3>数据类型和变量</h3>
+<p>不需要声明</p>
+<p>直接拿着一个想要的变量名字就用，他会给你解释</p>
+<h3>除法有两种,求余符号</h3>
+<p>/和//</p>
+<p>会有不同的结果</p>
+<h3>字符串和编码</h3>
+<p>ASCII编码</p>
+<p>Unicode编码</p>
+<p>UTF-8编码</p>
+<p>ord()函数</p>
+<p>chr()函数</p>
+<p>len()函数：计算str（python中字符串类型）的字符数，或者计算bytes的字节数，还可以计算list元素的个数。</p>
+<p>python的字符串类型是<code>str</code>,在内存中以Unicode编码表示，要将Unicode编码转为指定bytes的用   encode()函数。</p>
+<pre><code class="language-python">&gt;&gt;&gt; &#39;ABC&#39;.encode(&#39;ascii&#39;)
+b&#39;ABC&#39;
+&gt;&gt;&gt; &#39;中文&#39;.encode(&#39;utf-8&#39;)
+b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;
+&gt;&gt;&gt; &#39;中文&#39;.encode(&#39;ascii&#39;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in range(128)
+</code></pre>
+<p>在操作字符串时，我们会经常遇到<code>str</code>和<code>bytes</code>的互相转换，为了避免乱码问题，应当坚持使用UTF-8编码对<code>str</code> 和<code>bytes</code>进行转换。</p>
+<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行</p>
+<pre><code class="language-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+</code></pre>
+<p>第一行是告诉Linux/OS X系统，这是一个python可执行程序，Windows会自动忽略这个注释；</p>
+<p>第二行是告诉python解释器，按照UTF-8编码读取远代码，否者，我们在源代码中写的中文输出会有乱码。</p>
+<p>当然我们还会不止声明UTF-8编码就意味着我们的<code>.py</code>文件就是UTF-8编码，，必须确保文本编辑器使用的是<strong>UTF-8 without BOM编码</strong>。</p>
+<p>如果<code>.py</code>文件本身使用UTF-8编码，并且也申明了<code># -*- coding: utf-8 -*-</code>，打开命令提示符测试就可以正常显示中文</p>
+<h3>格式化</h3>
+<p>和C语言也挺像的，用%来替换进行格式化。（从C语言角度来看，就是简化了许多，有点自由度了，没有调调规规就是爽）</p>
+<pre><code class="language-python">print(&#39;%d&#39; % 6)
+print(&#39;%d&#39;%6)
+print(&#39;%d&#39; % (6))#后面的%的出现是告诉计算机替换内容的声明吧吧吧。
+#从结果来看，对于单个占位符，有木有空格和括号无伤大雅
+print(&#39;%d %d&#39; %(3,4))
+#这里注意，多个占位符，要加括号和英文逗号。
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">占位符</th>
+<th align="center">替换内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%d</td>
+<td align="center">整数</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">浮点数</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">字符串</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">十六进制整数</td>
+</tr>
+</tbody></table>
+<p>如果我们不太确定要用什么，<code>%s</code>永远起作用，他会把任何数据类型转换为字符串:</p>
+<h3>使用list和tuple</h3>
+<h4>list</h4>
+<p>list是python内置的一种数据类型，是一种有序的列表，有点像C语言的数组，但是在list中不要数据类型一样，所以就更像是C语言的结构了。其实我简称list为列表（应该没有问题吧）</p>
+<p>比如在list中的元素还可以是一个list。</p>
+<pre><code class="language-python">classmate = [1,2,[3,4],5];#在这里的classmate列表有四个元素，其中的3和4是一个list作为一个元素来看待。
+</code></pre>
+<p>list的访问跟C语言的数组有点相似：<code>classmate[0]</code>;<code>classmate[-1]</code>这里使用的-1表示是倒数第一个，毕竟-0没有意义。</p>
+<p>对list的添加和删除：</p>
+<pre><code class="language-python">classmate.append(&#39;6&#39;) #表示在list中追加元素到最后的末尾。
+classmate.insert(7,3) #表示是在list的第7位添加一个3的元素
+classmate.pop() #表示删除list末尾元素。
+classmate.pop(7) #表示删除list中指定的第i位的元素。
+classmate[0] = 4 #表示直接访问和赋值。
+</code></pre>
+<p>上面我们定义的这个classmate列表如果要访问其中第2个元素其中的第0个元素我们可以这样</p>
+<p><code>classmate[2][0]</code>：这就有点像在C语言中的二维数组一样了。</p>
+<h4>tuple</h4>
+<p>tuple是一种特殊的有序列表，一般叫元组，先说他的特殊性：一旦定义了（初始化）tuple，就不能修改tuple的元素，不能增删改，但其中也有特殊性，当我们定义的tuple中有list的时候我们可以修改list中的值，可以改，刚刚通过代码验证了，md还可以增删改的。那他不能修改是说的什么呢，我觉得是这么看，对于定义的tuple第一级别是不能被更改的，就这么说吧，第一层是指向的那几个元素不能被更改，</p>
+<p>他的一般性和list差不多，就是不限制类型，和像C语言数组一样的访问方式。</p>
+<pre><code class="language-python">q = () #定义了一个空的tuple
+q = (1) #这里的括号被解释成数学的括号运算，所以q是一个表示1的变量
+q = (1,) #这里的英文逗号是消除歧义的，表明他是一个只有一个元素的tuple。
+
+&gt;&gt;&gt; t = (1,2,[3,4]) #定义一个tuple
+&gt;&gt;&gt; t
+(1, 2, [3, 4])
+&gt;&gt;&gt; t[2].pop(1) #使用了list的删除。
+4
+&gt;&gt;&gt; t
+(1, 2, [3])
+&gt;&gt;&gt; t[2].insert(1,4) #使用了list的增加。
+&gt;&gt;&gt; t
+(1, 2, [3, 4])
+&gt;&gt;&gt; t[2][0] = 0 #使用了list的改，可以看出来访问的方式和list一样。
+&gt;&gt;&gt; t
+(1, 2, [0, 4])
+</code></pre>
+<p>不可变的tuple有什么意义？因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
+</div></div></article></main><footer class="site-footer"><p><span class="footer-signal"></span>SIGNAL STILL ALIVE</p><p>© 2022—2026 王耀祖</p><a href="mailto:kekun4txzs@163.com">kekun4txzs@163.com</a></footer><script src="/assets/js/nightlog.js"></script></body></html>
