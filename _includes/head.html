@@ -11,7 +11,9 @@
   <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 150 }}">
   <title>{% if page.title %}{{ page.title }} · {{ site.nickname }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/img/wang-yaozu-icon.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/wang-yaozu-id.png' | relative_url }}">
   <link rel="alternate" type="application/rss+xml" href="{{ '/rss.xml' | relative_url }}" title="{{ site.title }}">
   <link rel="stylesheet" href="{{ '/assets/css/nightlog.css' | relative_url }}">
 </head>

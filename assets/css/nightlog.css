@@ -29,7 +29,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .reading-progress span { display: block; width: 0; height: 100%; background: var(--signal); }
 
 .site-header { width: var(--page); height: 96px; margin: auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); position: relative; z-index: 30; }
-.wordmark { display: inline-flex; align-items: center; gap: 11px; font: 700 16px var(--utility); letter-spacing: -.04em; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; }
+.identity-avatar { width: 38px; height: 38px; border: 1px solid rgba(141,136,184,.42); border-radius: 11px; object-fit: cover; box-shadow: 0 0 22px rgba(255,120,73,.09); }
+.identity-name { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+.identity-name strong { font: 600 14px var(--display); letter-spacing: .02em; }
+.identity-name small { color: #747989; font: 8px var(--utility); letter-spacing: .04em; }
 .wordmark-signal, .footer-signal { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 5px rgba(255, 120, 73, .11), 0 0 22px rgba(255, 120, 73, .6); }
 .site-nav { display: flex; gap: 32px; font: 11px var(--utility); letter-spacing: .08em; text-transform: uppercase; }
 .site-nav a { color: var(--paper-dim); transition: color .2s, transform .2s; }
@@ -196,6 +200,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   :root { --page: calc(100vw - 32px); }
   body { font-size: 16px; }
   .site-header { height: 68px; }
+  .identity-avatar { width: 34px; height: 34px; border-radius: 10px; }
   .site-nav a:nth-child(1), .site-nav a:nth-child(3) { display: none; }
   .hero { padding-top: 60px; gap: 58px; }
   .hero h1 { font-size: clamp(44px, 13.2vw, 66px); }
