@@ -1,13 +1,12 @@
-<header class="g-header">
-    <div class="g-logo">
-      <a href="{{ "/" | relative_url }}"></a>
-    </div>
-    <i id="menu-toggle" class="iconfont icon-menu"></i>
-    <nav class="g-nav">
-        <ul>
-            {% for i in site.nav %}
-            <li><a href="{{ i[1] | relative_url}}">{{ i[0] }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
+<header class="site-header" data-site-header>
+  <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="返回首页">
+    <span class="wordmark-signal" aria-hidden="true"></span>
+    <span>gosleeper</span>
+  </a>
+  <nav class="site-nav" aria-label="主要导航">
+    <a href="{{ '/#notes' | relative_url }}">日志</a>
+    <a href="{{ '/tags.html' | relative_url }}">索引</a>
+    <a href="{{ '/#projects' | relative_url }}">项目</a>
+    <a href="https://github.com/gosleeper" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </nav>
 </header>

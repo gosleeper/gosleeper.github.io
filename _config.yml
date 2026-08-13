@@ -1,65 +1,19 @@
-# Site identity
-title: 'gosleeper · Digital Garden'
-description: 'Projects, notes, experiments, and long-term thinking from an independent developer.'
-keyword: 'gosleeper, independent developer, Java, Vue, software projects, technical notes'
+title: 'gosleeper · 夜航日志'
+description: '王耀祖的个人博客：写代码，也记录代码之外的事。'
+keyword: 'gosleeper, 王耀祖, 独立开发, Java, Python, C++, 技术博客'
 url: 'https://gosleeper.github.io'
 baseurl: ''
 
-# Navigation
-nav:
-  home: '/'
-  tags: '/tags.html'
-
-# Footer
-footer:
-  since: 2022
-
-# Author
-author: 'gosleeper'
+author: '王耀祖'
 nickname: 'gosleeper'
-bio: 'Building practical software, exploring ideas, and documenting the journey.'
-avatar: '/assets/img/profile.png'
+email: 'kekun4txzs@163.com'
 
-# Experience
-search: true
-nightMode: true
-mathjax: true
-
-# Comments are disabled until a maintained provider is configured.
-comments:
-  disqus: false
-  disqus_url:
-
-# Sharing
-social-share: true
-social-share-items: ['wechat', 'twitter']
-
-# Visual theme
-theme-color: 'default'
-postPatterns: 'circuitBoard'
-
-# Social links
-sns:
-  github: '//github.com/gosleeper'
-
-# Tags
-recommend-tags: true
-recommend-condition-size: 12
-
-# Build
-paginate: 8
-paginate_path: 'page:num'
-exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
-
-# Markdown
 markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
-
-# Feeds and URLs
-RSS: false
 permalink: /:year/:month/:day/:title.html
-
-# Plugins
 plugins: [jekyll-paginate]
+paginate: 8
+paginate_path: 'page:num'
+exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']

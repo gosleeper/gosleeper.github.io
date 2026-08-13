@@ -1,34 +1,23 @@
 ---
-title: Tags
+title: 日志索引
 layout: default
+description: 按主题浏览 gosleeper 的全部日志。
 ---
-
-{% include header.html %}
-
-<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
-    <h2>TAGS</h2>
-</div>
-
-<main class="tags-content">
-
-    <ul class="tags-list">
-        <li>
-        {% if site.recommend-tags and site.tags.size>0 %}
-            {% for tag in site.tags %}
-            <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
-            {% endfor %}
-        {% endif %}
-        </li>
-        
-        {% for tag in site.tags %}
-        <li>
-            <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
-            {% for post in tag[1] %}
-            <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
-            {% endfor %}
-        </li>
-        {% endfor%}
-    </ul>
-</main>
-    
-{% include footer.html %}
+<section class="archive-shell">
+  <header class="archive-head reveal">
+    <p class="kicker">LOG INDEX</p>
+    <h1>日志索引</h1>
+    <p>按主题找一段旧记录。它们没有被重新包装，保留着写下时的样子。</p>
+  </header>
+  <nav class="tag-cloud reveal" aria-label="标签">
+    {% for tag in site.tags %}<a href="#{{ tag[0] }}">{{ tag[0] }} <sup>{{ tag[1].size }}</sup></a>{% endfor %}
+  </nav>
+  <div class="archive-groups">
+    {% for tag in site.tags %}
+    <section class="archive-group reveal" id="{{ tag[0] }}">
+      <header><span>{{ tag[0] }}</span><small>{{ tag[1].size | prepend: '0' | slice: -2, 2 }} NOTES</small></header>
+      {% for post in tag[1] %}<a href="{{ post.url | relative_url }}"><time>{{ post.date | date: '%Y.%m.%d' }}</time><strong>{{ post.title }}</strong><span>↗</span></a>{% endfor %}
+    </section>
+    {% endfor %}
+  </div>
+</section>
