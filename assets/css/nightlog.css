@@ -131,6 +131,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .archive-group > a > span { color: var(--signal); }
 
 .article-shell { width: var(--page); margin: auto; }
+.article-shell .reveal { opacity: 1; transform: none; }
 .article-hero { padding: 95px 10% 72px; border-bottom: 1px solid var(--line); }
 .back-link { display: inline-block; margin-bottom: 80px; color: #7e8290; font: 10px var(--utility); letter-spacing: .08em; }
 .article-hero h1 { max-width: 940px; margin: 0; font: 500 clamp(48px, 7vw, 100px)/.95 var(--display); letter-spacing: -.065em; }
